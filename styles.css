@@ -1,0 +1,61 @@
+  .title{
+      font-size: 2rem;
+      font-family: 'Courier New', Courier, monospace;
+  }
+  .scene{
+    padding: 1rem;
+    height:18rem;
+    margin:auto;
+    border: 1px solid #ebebeb;
+    text-align: center;
+  }
+  .character{
+    background-color: orange;
+    display: block;
+  }
+  .word{
+    margin:2rem;
+    height:7rem;
+  }
+
+  .stage{
+   flex:1;
+   height: 2rem;
+   margin:2rem  auto;
+   display:block;
+  }
+  .letter{
+    padding:1rem;
+    border-bottom: 2px solid #888;
+    margin: 0 0.6rem;
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+  }
+
+  .key{
+    padding: 0.3rem;
+    width: 3rem;
+    margin: 0.1rem;
+    border: outset 0.15rem;
+    border-radius: 0.3rem;
+  }
+  .change-word{
+    padding: 0.8rem;
+    margin: 0.1rem;
+    border: outset 0.15rem;
+    border-radius: 0.3rem;
+    font-size: 1.3rem;
+  }
+  button:disabled{
+    background: #ebebeb;
+    cursor: not-allowed;
+  }
+  .keyboard{
+      text-align: center;
+      height:7rem;
+      display:block;
+  }
+  .invisible{
+   display: none;
+  }
