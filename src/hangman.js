@@ -13,6 +13,7 @@ const Hangman = {
 		{ letters: 'llavero', hidden: 'aver' },
 	],
 	init: function() {
+		console.info('Game started!');
 		const head = document.querySelector('#head');
 		const rightArm = document.querySelector('#right-arm');
 		const body = document.querySelector('#body');
@@ -25,6 +26,8 @@ const Hangman = {
 		rightLeg.classList.add('invisible');
 		leftArm.classList.add('invisible');
 		leftLeg.classList.add('invisible');
+		this.loader = document.querySelector('.hangman-loader');
+		this.initLoad();
 		this.index = this.getIndex();
 		this.word = this.wordList[this.index];
 		this.loser = 0;
@@ -34,6 +37,29 @@ const Hangman = {
 		this.wordText = document.getElementById('word');
 		this.writeWord();
 		this.writeKeyword();
+		this.attachKeyEvent();
+		this.attachChangeWordEvent();
+		setTimeout(() => this.endLoad(), 999);
+	},
+	initLoad: function() {
+		this.loader.classList.add('is-active');
+	},
+	endLoad: function() {
+		this.loader.classList.remove('is-active');
+	},
+	attachKeyEvent: function() {
+		document.querySelectorAll('.key').forEach((item) => {
+			item.addEventListener('click', (event) => {
+				this.pressKey(event.target);
+			});
+		});
+	},
+	attachChangeWordEvent: function() {
+		document
+			.querySelector('.change-word')
+			.addEventListener('click', function() {
+				Hangman.restart();
+			});
 	},
 	restart: function() {
 		setTimeout(() => this.init(), 1500);
@@ -51,7 +77,7 @@ const Hangman = {
 				? 'invisible'
 				: 'visible';
 
-			this.wordText.innerHTML += `<span class="letter"><span class="${visibility}">${letter}</span></span>`;
+			this.wordText.innerHTML += `<span class="letter mx-2"><span class="${visibility}">${letter}</span></span>`;
 		}
 	},
 	writeKeyword: function() {
@@ -67,7 +93,7 @@ const Hangman = {
 					? 'disabled'
 					: '';
 
-			buttons += `<button class="key" value="${letter}" ${status} onclick="Hangman.pressKey(this)">${letter}</button>${br}`;
+			buttons += `<button class="button is-primary is-rounded key" value="${letter}" ${status} >${letter}</button>${br}`;
 		}
 		keyboardContainer.innerHTML = buttons;
 	},
@@ -123,5 +149,4 @@ const Hangman = {
 		}
 	},
 };
-
 Hangman.init();

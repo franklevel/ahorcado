@@ -1,0 +1,29 @@
+{
+  "name": "ahorcado",
+  "version": "1.0.0",
+  "description": "El clasico juego del ahorcado",
+  "main": "src/hangman.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:config": "webpack --config webpack.config.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franklevel/ahorcado.git"
+  },
+  "keywords": [
+    "game",
+    "juego",
+    "ahorcado"
+  ],
+  "author": "Franklin Ruiz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franklevel/ahorcado/issues"
+  },
+  "homepage": "https://github.com/franklevel/ahorcado#readme",
+  "devDependencies": {
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
+  }
+}
