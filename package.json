@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle-up": "webpack-cli",
     "start:dev": "npx webpack serve --open",
-    "start:prod": "npx webpack serve",
+    "build": "npx webpack --config webpack.prod.js",
     "watch:config": "npx webpack --config webpack.config.js --watch"
   },
   "repository": {
@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@types/lodash": "^4.14.182",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "webpack-merge": "^5.10.0"
   }
 }

@@ -1,6 +1,6 @@
 import { WORDS_LIST } from "./common/constants";
 import { addClassesTo, changeClass, removeClassesFrom } from "./common/utils";
-import _ from "lodash";
+import * as _ from "lodash";
 
 type Word = { letters: string; hidden: string, level: string };
 
