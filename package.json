@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle-up": "webpack-cli",
     "start:dev": "npx webpack serve --open",
+    "start:prod": "npx webpack serve",
     "watch:config": "npx webpack --config webpack.config.js --watch"
   },
   "repository": {

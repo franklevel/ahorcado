@@ -4,6 +4,9 @@ h1{
 body{
   text-align:center;
 }
+.word{
+  margin:1rem;
+}
 .letter {
   padding: 1rem;
   margin-right: 0.5rem;

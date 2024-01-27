@@ -61,21 +61,23 @@ class Hangman {
   }
 
   attachKeyEvent() {
-    document.querySelectorAll(".key").forEach((item) => {
-      item.addEventListener("click", (event) => {
-        this.pressKey(event.target);
+    const keyElements = document.querySelectorAll(".key");
+  
+    keyElements.forEach((keyElement) => {
+      keyElement.addEventListener("click", () => {
+        this.pressKey(keyElement);
       });
     });
   }
-
+  
   attachChangeWordEvent() {
-    const that = this;
-    document
-      .querySelector(".change-word")
-      .addEventListener("click", function () {
-        that.restart();
-      });
+    const changeWordElement = document.querySelector(".change-word");
+  
+    changeWordElement.addEventListener("click", () => {
+      this.restart();
+    });
   }
+  
 
   getIndex() {
     const max = WORDS_LIST.length;
@@ -83,7 +85,6 @@ class Hangman {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  // create unit test for this method
   writeWord() {
     this.wordText.innerHTML = "";
 
@@ -146,7 +147,6 @@ class Hangman {
       .filter((e: number) => e !== -1);
   }
 
-  // Check whether
   checkWord() {
     const letters = document.querySelectorAll(".letter span.visible");
     const word = this.word.letters;
@@ -159,25 +159,30 @@ class Hangman {
       "#left-arm",
       "#left-leg",
     ];
+  
     if (letters.length >= word.length) {
       console.info("You are the winner");
       setTimeout(() => {
         this.restart();
-      }, 2500);
+      }, 2000);
+      return;
     }
-
+  
     if (this.key && !this.word.letters.toUpperCase().includes(this.key.value)) {
       this.loser++;
-      removeClassesFrom(
-        [document.querySelector(parts[this.loser])],
-        ["invisible"]
-      );
+      const loserPart:HTMLElement = document.querySelector(parts[this.loser]);
+      
+      if (loserPart) {
+        removeClassesFrom([loserPart], ["invisible"]);
+      }
+  
       if (this.loser > this.maximumAttempts) {
-        alert("Your lost!");
+        alert("You lost!");
         this.restart();
       }
     }
   }
+  
 }
 
 const game = new Hangman();
