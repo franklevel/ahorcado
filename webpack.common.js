@@ -19,7 +19,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Production",
+      title: "Hangman",
+      filename: "index.html",
+      template: "./public/index.html",
     }),
   ],
   output: {
